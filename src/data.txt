@@ -1,0 +1,29 @@
+<i class="fa-solid fa-down-long"></i>
+
+<i class="fa-solid fa-up-long"></i>
+
+
+<i class="fa-solid fa-wind"></i>
+
+<i class="fa-solid fa-droplet"></i>
+
+speed
+<i class="fa-solid fa-gauge"></i>
+
+<i class="fa-brands fa-wpressr"></i>
+
+
+
+ const dummy_data= {description: null,
+    Icon_url: Icon_url(icon),
+    temp:null,
+    temp_max:null,
+    temp_min:null,
+    feels_like,
+    pressure,
+    humidity,
+    speed,
+    country,
+    name,
+
+  }
