@@ -1,6 +1,6 @@
 import React  from "react";
 
-function Search(){
+function Search({handleClick}){
     return (
       <>
         <div className="searchbar-container"></div>
@@ -8,7 +8,7 @@ function Search(){
           <span>
             <input type="text" placeholder="Enter City ..."></input>
           </span>
-          <button className="search-button">F </button>
+          <button  onClick={handleClick} className="search-button"> °F </button>
         </div>
       </>
     );

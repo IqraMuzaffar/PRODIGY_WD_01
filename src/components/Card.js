@@ -1,41 +1,71 @@
 import React from "react";
 
-function Card(){
-    return (
-      <>
-        <div className="card-setting">
-          <div className="card">
-            <div className="icons">
-              <i class="fa-solid fa-down-long"></i>
-              <small> Min</small>
-              <h3> 24 C</h3>
-            </div>
-          </div>
-          <div className="card">
-            <div className="icons">
-              <i class="fa-solid fa-down-long"></i>
-              <small> Min</small>
-              <h3> 24 C</h3>
-            </div>
-          </div>
+function Card({weather , units}){
+  const tempUnit = units === "metric" ? "°C" : "°F";
+  const windUnit = units === "metric" ? "m/s" : "m/h";
 
-          <div className="card">
+
+const cards = [
+  {
+    id: 1,
+    icon: <i class="fa-solid fa-down-long"></i>,
+    title: "min",
+    data: weather.temp_min.toFixed(),
+    units: tempUnit,
+  },
+  {
+    id: 2,
+    icon: <i class="fa-solid fa-up-long"></i>,
+    title: "max",
+    data: weather.temp_max.toFixed(),
+    units: tempUnit,
+  },
+  {
+    id: 3,
+    icon: <i class="fa-solid fa-droplet"></i>,
+    title: "feels like",
+    data: weather.feels_like.toFixed(),
+    units: tempUnit,
+  },
+  {
+    id: 4,
+    icon: <i class="fa-solid fa-wind"></i>,
+    title: "humidity",
+    data: weather.humidity,
+    units: "hPa",
+  },
+  {
+    id: 5,
+    icon: <i class="fa-brands fa-wpressr"></i>,
+    title: "pressure",
+    data: weather.pressure,
+    units: "%",
+  },
+  {
+    id: 6,
+    icon: <i class="fa-solid fa-gauge"></i>,
+    title: "wind speed",
+    data: weather.speed.toFixed(),
+    units: windUnit,
+  },
+];
+
+
+  return (
+    <>
+      <div className="card-setting">
+        {cards.map(({id, icon , title , data, units}) => (
+          <div key= {id}className="card">
             <div className="icons">
-              <i class="fa-solid fa-down-long"></i>
-              <small> Min</small>
-              <h3> 24 C</h3>
+              {icon}
+              <small>{title} </small>
+              <h3>{`${data} ${units}`}</h3>
             </div>
           </div>
-          <div className="card">
-            <div className="icons">
-              <i class="fa-solid fa-down-long"></i>
-              <small> Min</small>
-              <h3> 24 C</h3>
-            </div>
-          </div>
-        </div>
-      </>
-    );
+        ))}
+      </div>
+    </>
+  );
 }
 
 export default Card;

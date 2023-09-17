@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function Weather({weather}){
+function Weather({weather, units}){
     return (
       <>
         <div className="weather-container">
@@ -13,7 +13,7 @@ function Weather({weather}){
             <h3>{weather.description}</h3>
           </div>
           <div className="temperature">
-            <h1>{`${weather.temp} ° C`}</h1>
+            <h1>{`${weather.temp.toFixed()} °  ${units === 'metric' ? "C" : "F" }`}</h1>
           </div>
         </div>
       </>
